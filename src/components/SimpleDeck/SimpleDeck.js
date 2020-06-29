@@ -87,3 +87,12 @@ const btns = StyleSheet.create({
     backgroundColor: "#EBEFF3",
   },
 });
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#FFF",
+  },
+  mb15: {
+    marginBottom: 20,
+  },
+});
