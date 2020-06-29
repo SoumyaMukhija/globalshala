@@ -16,10 +16,9 @@ import {
   Right,
   Body,
 } from "native-base";
-import {cards} from "./data";
+import { cards } from "./data";
 
-
-export default function SimpleDeck(){
+export default function SimpleDeck() {
   return (
     <Container style={bground.container}>
       <Header>
