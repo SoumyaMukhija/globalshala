@@ -3,3 +3,9 @@ export async function makeRequest() {
   const json = await response.json();
   return json;
 }
+
+export async function makeProgressRequest() {
+  const response = await fetch(""); //link serving progress data
+  const json = await response.json();
+  return json;
+}
