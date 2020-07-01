@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import WelcomePage from "./src/screens/WelcomePage/";
+import WelcomePage from "./src/screens/WelcomePage";
+import ProgressPage from "./src/screens/ProgressPage";
 import * as Font from "expo-font";
 import { Text } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
@@ -23,7 +24,7 @@ export default function App() {
     if (isLoading) {
       return <AppLoading />;
     } else {
-      return <WelcomePage />;
+      return <ProgressPage />;
     }
   } else return <AppLoading />;
 }

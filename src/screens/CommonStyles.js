@@ -22,8 +22,16 @@ export const TextStyle = StyleSheet.create({
     width:'100%',
     fontWeight: 'bold',
     fontSize: 32,
-    textAlign:'center'
   },
+
+  heading_centered:{
+    marginTop:10,
+    width:'100%',
+    fontWeight: 'bold',
+    textAlign:'center',
+    fontSize: 32,
+  },
+
   subtitle:{
     width:'100%',
     marginTop:10,
