@@ -7,6 +7,12 @@ const ScreenStyles = StyleSheet.create({
     alignItems:'flex-start',
     padding:20
   },
+  screen_basic:{
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems:'flex-start',
+    padding:20
+  }, 
   screen_centered:{
     flex: 1,
     justifyContent: 'center',

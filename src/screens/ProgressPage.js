@@ -44,7 +44,6 @@ export default function ProgressPage() {
       </Root>
     );
   }else{
-    console.log(data);
     return <Loading message= "Getting your recipe to successs"/>
   }
 

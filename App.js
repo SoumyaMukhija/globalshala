@@ -5,6 +5,8 @@ import * as Font from "expo-font";
 import { Text } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { AppLoading } from "expo";
+import HomePage from "./src/screens/HomePage";
+import Loading from "./src/screens/LoadingPage";
 //import AppFontLoader from "./src/utils/AppFontLoader";
 
 export default function App() {
@@ -22,9 +24,9 @@ export default function App() {
   }, []);
   if (_isMounted.current) {
     if (isLoading) {
-      return <AppLoading />;
+      return <Loading />;
     } else {
-      return <ProgressPage />;
+      return <HomePage />
     }
-  } else return <AppLoading />;
+  } else return <Loading />;
 }
