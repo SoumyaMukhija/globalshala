@@ -1,3 +1,4 @@
+
 import {Linking} from 'react-native';
 
 const BASE_URL = "https://0dd9f5a28184.ngrok.io"
@@ -11,7 +12,7 @@ export async function makeRequest() {
 export async function makeProgressRequest() {
   const response = await fetch(BASE_URL+"/progress/");
   const json = await response.json();
-  return json
+  return json;
 }
 
 export async function makeFeedRequest() {
