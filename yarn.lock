@@ -1770,15 +1770,9 @@ camelcase@^5.0.0, camelcase@^5.3.1:
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
 caniuse-lite@^1.0.30001088:
-<<<<<<< HEAD
-  version "1.0.30001093"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001093.tgz#833e80f64b1a0455cbceed2a4a3baf19e4abd312"
-  integrity sha512-0+ODNoOjtWD5eS9aaIpf4K0gQqZfILNY4WSNuYzeT1sXni+lMrrVjc0odEobJt6wrODofDZUX8XYi/5y7+xl8g==
-=======
   version "1.0.30001091"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001091.tgz#84908c67b98e02c2a56d4afa51e6458b53fb5321"
   integrity sha512-ECd8gfBBpv0GKsEYY5052+8PBjExiugDoi3dfkJcxujh2mf7kiuDvb1o27GXlOOGopKiIPYEX8XDPYj7eo3E9w==
->>>>>>> 3f75c84185d50c0b6e4f0bf0e2cc41aa9c3609ec
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -2120,15 +2114,9 @@ css-in-js-utils@^2.0.0:
     isobject "^3.0.1"
 
 dayjs@^1.8.15:
-<<<<<<< HEAD
-  version "1.8.29"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.29.tgz#5d23e341de6bfbd206c01136d2fb0f01877820f5"
-  integrity sha512-Vm6teig8ZWK7rH/lxzVGxZJCljPdmUr6q/3f4fr5F0VWNGVkZEjZOQJsAN8hUHUqn+NK4XHNEpJZS1MwLyDcLw==
-=======
   version "1.8.28"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.28.tgz#37aa6201df483d089645cb6c8f6cef6f0c4dbc07"
   integrity sha512-ccnYgKC0/hPSGXxj7Ju6AV/BP4HUkXC2u15mikXT5mX9YorEaoi1bEKOmAqdkJHN4EEkmAf97SpH66Try5Mbeg==
->>>>>>> 3f75c84185d50c0b6e4f0bf0e2cc41aa9c3609ec
 
 debounce@^1.2.0:
   version "1.2.0"
@@ -2248,15 +2236,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.483:
-<<<<<<< HEAD
-  version "1.3.484"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.484.tgz#75f5a1eee5fe3168758b7c2cf375ae73c1ccf5e6"
-  integrity sha512-esh5mmjAGl6HhAaYgHlDZme+jCIc+XIrLrBTwxviE+pM64UBmdLUIHLlrPzJGbit7hQI1TR/oGDQWCvQZ5yrFA==
-=======
   version "1.3.483"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.483.tgz#9269e7cfc1c8e72709824da171cbe47ca5e3ca9e"
   integrity sha512-+05RF8S9rk8S0G8eBCqBRBaRq7+UN3lDs2DAvnG8SBSgQO3hjy0+qt4CmRk5eiuGbTcaicgXfPmBi31a+BD3lg==
->>>>>>> 3f75c84185d50c0b6e4f0bf0e2cc41aa9c3609ec
 
 emoji-regex@^7.0.1:
   version "7.0.3"
@@ -2355,6 +2337,11 @@ escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
+
+escape-string-regexp@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
+  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
 
 escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
@@ -2520,16 +2507,7 @@ expo-sqlite@~8.2.1:
     "@expo/websql" "^1.0.1"
     lodash "^4.17.15"
 
-expo-status-bar@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/expo-status-bar/-/expo-status-bar-1.0.2.tgz#2441a77c56be31597898337b0d086981f2adefd8"
-  integrity sha512-5313u744GcLzCadxIPXyTkYw77++UXv1dXCuhYDxDbtsEf93iMra7WSvzyE8a7mRQLIIPRuGnBOdrL/V1C7EOQ==
-
-<<<<<<< HEAD
-expo@~38.0.1:
-=======
 expo@^38.0.8:
->>>>>>> 3f75c84185d50c0b6e4f0bf0e2cc41aa9c3609ec
   version "38.0.8"
   resolved "https://registry.yarnpkg.com/expo/-/expo-38.0.8.tgz#c85727eb382d51d8a8289bc669257b1c90472406"
   integrity sha512-shas7FpQrQDqGP/ZY6Srj69yru+cwH4q0pu3ty4K/y42lWQdrZk6g7S2h5cR20kbw4IGQnYJKnzgmi/vcyryKA==
@@ -3065,7 +3043,7 @@ inquirer@^3.0.6:
     strip-ansi "^4.0.0"
     through "^2.3.6"
 
-invariant@^2.2.2, invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -4670,14 +4648,11 @@ react-native-safe-area-context@~3.0.7:
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.0.7.tgz#0f53de7a30d626d82936000f3f6db374ecc4b800"
   integrity sha512-dqhRTlIFe5+P1yxitj0C9XVUxLqOmjomeqzUSSY8sNOWVjtIhEY/fl4ZKYpAVnktd8dt3zl13XmJTmRmy3d0uA==
 
-<<<<<<< HEAD
-=======
 react-native-step-indicator@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/react-native-step-indicator/-/react-native-step-indicator-1.0.3.tgz#d136ec88639485a338c8ce281035aefd9d169f8f"
   integrity sha512-WwTb6lpJl0T7MV59sus1utoEQuqbuWHq6V0R0iDWmlPRFjM0qirhTNTS5on1+V9Qmc9dsUCT380/mRgDF+U6zw==
 
->>>>>>> 3f75c84185d50c0b6e4f0bf0e2cc41aa9c3609ec
 react-native-vector-icons@^6.6.0:
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-6.6.0.tgz#66cf004918eb05d90778d64bd42077c1800d481b"
@@ -4702,6 +4677,14 @@ react-native-web@~0.11.7:
     normalize-css-color "^1.0.2"
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.4"
+
+react-native-webview@9.4.0:
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-9.4.0.tgz#108da34a6c7e1c032dcabc942b7e4947ca1d8028"
+  integrity sha512-BBOFUuza0p04+7fNi7TJmB0arpDJzGxHYwTCgI4vj5n/fl7u4jbm7ETp88mf7lo9lP6C6HGLo38KnEy1aXCQkg==
+  dependencies:
+    escape-string-regexp "2.0.0"
+    invariant "2.2.4"
 
 "react-native@https://github.com/expo/react-native/archive/sdk-38.0.0.tar.gz":
   version "0.62.2"
@@ -5386,28 +5369,6 @@ symbol-observable@1.0.1:
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.1.tgz#8340fc4702c3122df5d22288f88283f513d3fdd4"
   integrity sha1-g0D8RwLDEi310iKI+IKD9RPT/dQ=
 
-<<<<<<< HEAD
-tcomb-form-native@^0.6.20:
-  version "0.6.20"
-  resolved "https://registry.yarnpkg.com/tcomb-form-native/-/tcomb-form-native-0.6.20.tgz#81771faf86536a5d4c0f492885eb229324d47ea5"
-  integrity sha512-tuvLmdii2zvkevzFKMS1lYbmE5BeKuRF+sokVqllfjwrViLjgdSCD2Y8WZHUYbUMTbBfEUF65F0vd5zP+Owr2Q==
-  dependencies:
-    tcomb-validation "^3.0.0"
-
-tcomb-validation@^3.0.0:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/tcomb-validation/-/tcomb-validation-3.4.1.tgz#a7696ec176ce56a081d9e019f8b732a5a8894b65"
-  integrity sha512-urVVMQOma4RXwiVCa2nM2eqrAomHROHvWPuj6UkDGz/eb5kcy0x6P0dVt6kzpUZtYMNoAqJLWmz1BPtxrtjtrA==
-  dependencies:
-    tcomb "^3.0.0"
-
-tcomb@^3.0.0:
-  version "3.2.29"
-  resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-3.2.29.tgz#32404fe9456d90c2cf4798682d37439f1ccc386c"
-  integrity sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==
-
-=======
->>>>>>> 3f75c84185d50c0b6e4f0bf0e2cc41aa9c3609ec
 temp@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/temp/-/temp-0.8.3.tgz#e0c6bc4d26b903124410e4fed81103014dfc1f59"
