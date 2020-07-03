@@ -1,7 +1,6 @@
+import { Linking } from "react-native";
 
-import {Linking} from 'react-native';
-
-const BASE_URL = "https://0dd9f5a28184.ngrok.io"
+const BASE_URL = "https://0dd9f5a28184.ngrok.io";
 
 export async function makeRequest() {
   const response = await fetch(BASE_URL);
@@ -10,17 +9,29 @@ export async function makeRequest() {
 }
 
 export async function makeProgressRequest() {
-  const response = await fetch(BASE_URL+"/progress/");
+  const response = await fetch(BASE_URL + "/progress/");
   const json = await response.json();
   return json;
 }
 
 export async function makeFeedRequest() {
-  const response = await fetch(BASE_URL+"/feed_data/");
+  const response = await fetch(BASE_URL + "/feed_data/");
   const json = await response.json();
-  return json
+  return json;
 }
 
-export function openInBrowser(url){
-  Linking.openURL(url).catch(err => alert("Can not open url!"));
+export async function makeRankingRequest() {
+  const response = await fetch(BASE_URL + "/univ_ranking/");
+  const json = await response.json();
+  return json;
+}
+
+export async function makePredictionRequest() {
+  const response = await fetch(BASE_URL + "/univ_prediction/");
+  const json = await response.json();
+  return json;
+}
+
+export function openInBrowser(url) {
+  Linking.openURL(url).catch((err) => alert("Can not open url!"));
 }
