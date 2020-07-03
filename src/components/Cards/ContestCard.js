@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image, View} from 'react-native';
+import {openInBrowser} from "../../utils/network_utils"
 import {CardStyles} from "./CardStyles";
 import { Card, CardItem, Body, Text, Badge } from 'native-base';
 
@@ -18,7 +19,7 @@ const ContestCard = (props) => {
             </View>
           </Body>
         </CardItem>
-        <CardItem style={CardStyles.contest_btn_container} footer button onPress={() => alert("This is Card Footer")}>
+        <CardItem style={CardStyles.contest_btn_container} footer button onPress={() => openInBrowser(props.url)}>
           <Badge style={CardStyles.contest_card_tag}><Text>Contest</Text></Badge>
           <Text style={CardStyles.contest_card_btn}>Compete</Text>
         </CardItem>

@@ -6,7 +6,7 @@ const ListPage = (props) => {
       <Container>
         <Header />
         <Content>
-          <List>>
+          <List>
             <ListItem>
               <Text>Aaron Bennet</Text>
             </ListItem>

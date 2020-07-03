@@ -1,3 +1,4 @@
+import {Linking} from 'react-native';
 
 const BASE_URL = "https://0dd9f5a28184.ngrok.io"
 
@@ -17,4 +18,8 @@ export async function makeFeedRequest() {
   const response = await fetch(BASE_URL+"/feed_data/");
   const json = await response.json();
   return json
+}
+
+export function openInBrowser(url){
+  Linking.openURL(url).catch(err => alert("Can not open url!"));
 }

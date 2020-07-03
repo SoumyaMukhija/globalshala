@@ -1,6 +1,6 @@
-import React, { StyleSheet, useEffect, useState } from "react";
-import { makeProgressRequest } from "../utils/network_utils";
-import { Container, Content, ActionSheet, Root } from 'native-base';
+import React, { useEffect, useState } from "react";
+import { makeProgressRequest, openInBrowser } from "../utils/network_utils";
+import { ActionSheet, Root, Fab, Icon, Button} from 'native-base';
 import { Text, View } from "react-native";
 import ScreenStyles, {TextStyle} from "./CommonStyles"
 import Progress from "../components/Progress"
@@ -11,7 +11,6 @@ export default function ProgressPage() {
   const [data, setData] = useState(undefined)
 
   const showActionSheet = (item) => {
-    console.log(item);
     let CONTENT = [{ text: " "},{ text: item["Description"] || "No Description"},{ text: " "},{ text: "More About this", icon: "book", iconColor: "#048FC1" }];
     ActionSheet.show(
                 {
@@ -19,7 +18,9 @@ export default function ProgressPage() {
                   title: item["Name"] || "No title"
                 },
                 buttonIndex => {
-                  
+                  if(buttonIndex == 3){
+                    openInBrowser(item['Related'][0])
+                  }
                 }
               )
   }
@@ -40,6 +41,13 @@ export default function ProgressPage() {
         <Text style={TextStyle.heading}>Map your journey</Text>
         <Text style={TextStyle.subtitle}>with Globalshala!</Text>
         <Progress data={data} showActionSheet={showActionSheet}/>
+        <Fab
+            style={{ backgroundColor: '#048FC1', marginLeft:60}}
+            position="bottomLeft"
+            containerStyle={{left:'50%'}}
+            onPress={() => {alert('Chat')}}>
+            <Icon name="chatbubbles" />
+          </Fab>
       </View>
       </Root>
     );
