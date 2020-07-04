@@ -1,6 +1,6 @@
 import { Linking } from "react-native";
 
-const BASE_URL = "https://0dd9f5a28184.ngrok.io";
+const BASE_URL = "https://2ae005c112eb.ngrok.io";
 
 export async function makeRequest() {
   const response = await fetch(BASE_URL);
