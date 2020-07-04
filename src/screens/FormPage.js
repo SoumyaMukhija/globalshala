@@ -1,85 +1,133 @@
-import t from "tcomb-form-native";
-import React, { Component } from "react";
-import { View, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import {Formik} from "formik";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
+import ScreenStyles, {TextStyle} from "./CommonStyles";
+import { Button, Item, Icon, Input, Label, CheckBox, Picker } from 'native-base';
 
-const Form = t.form.Form;
+const style = StyleSheet.create({
+  label:{
+    marginTop:20,
+  },
+  input: {
+    width:'100%'
+  }
+})
 
-export default function Form() {
-  handleSubmit = () => {};
+export default function FormPage() {
 
-  var GRE_predicate = function (x) {
-    return x >= 260 && x <= 340;
+  let [researched, setResearched] = useState(false);
+  let [tnc, setTNC] = useState(true);
+
+  const validate = (values) => {
+    const errors = {};
+    if (!values.name) {
+      errors.name = "Name Required";
+    } else if (values.name.length < 2) {
+      errors.name = "Minimun length of 2";
+    }
+    if (!values.gre) {
+      errors.gre = "GRE Required";
+    } else if (values.gre < 260) {
+      errors.gre = "Minimun val of 260";
+    }else if(values.gre > 330){
+      errors.gre = "max val of 330";
+    }
+    if (!values.toefl) {
+      errors.toefl = "toefl Required";
+    } else if (values.toefl < 80) {
+      errors.toefl = "Minimun val of 80";
+    }else if(values.toefl > 120){
+      errors.toefl = "max val of 120";
+    }
+    if (!values.cgpa) {
+      errors.cgpa = "CGPA Required";
+    } else if (values.cgpa < 1) {
+      errors.password = "Minimun 1";
+    } else if (values.cgpa > 10) {
+      errors.password = "Max 10";
+    }
+    if(tnc == false){
+      errors.tnc = "Terms and conditions need to be checked."
+    }
+    return errors;
   };
-  var TOEFL_predicate = function (x) {
-    return x <= 120;
-  };
-  var CGPA_predicate = function (x) {
-    return x <= 10;
-  };
 
-  var GRE_Range = t.refinement(t.Number, GRE_predicate);
-  var TOEFL_Range = t.refinement(t.Number, TOEFL_predicate);
-  var CGPA_Range = t.refinement(t.Number, CGPA_predicate);
+  return <View style={ScreenStyles.screen_basic}>
+    <Text style={TextStyle.heading}>Chances</Text>
+    <Text style={TextStyle.subtitle}>Would you get into your dream university?</Text>
+    <Formik
+        initialValues={{
+          name: "",
+          gre: 0,
+          toefl: 0,
+          cgpa: 0,
+          institute: "", 
+          researched: false
+        }}
+        onSubmit={(values) => {
+          let errors = validate(values)
+          if(errors && Object.values(errors).length > 0){
+            let errorMsgs = Object.values(errors);
+            alert(JSON.stringify(errorMsgs[0]))
+          }
+        }
+      }
 
-  const User = t.struct({
-    name: t.String,
-    surname: t.String,
-    GRE: GRE_Range,
-    TOEFL: TOEFL_Range,
-    CGPA: CGPA_Range,
-    research: t.Boolean,
-    terms: t.Boolean,
-  });
-
-  const modifications = {
-    auto: "placeholders",
-    fields: {
-      name: {
-        label: "First Name",
-      },
-      surname: {
-        label: "Last Name",
-      },
-      terms: {
-        label: "I agree to the terms and conditions of Globalshala",
-      },
-    },
-  };
-
-  return (
-    <View style={styles.container}>
-      <Form ref="form" type={User} options={modifications} />
-      <TouchableHighlight
-        style={styles.button}
-        onPress={this.onPress}
-        underlayColor="#99d9f4"
       >
-        <Text style={styles.buttonText}>Save</Text>
-      </TouchableHighlight>
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: "center",
-    marginTop: 50,
-    padding: 20,
-    backgroundColor: "#ffffff",
-  },
-  buttonText: {
-    fontSize: 18,
-    color: "white",
-    alignSelf: "center",
-  },
-  button: {
-    height: 36,
-    backgroundColor: "#48BBEC",
-    borderColor: "#48BBEC",
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    alignSelf: "stretch",
-    justifyContent: "center",
-  },
-});
+    {({handleChange, handleSubmit, values, touched, errors, isSubmitting  }) => {
+      return (
+        <ScrollView style={{ marginTop: 30, width: '100%'}} showsVerticalScrollIndicator ={false}>
+    <Item stackedLabel style={style.input}>
+              <Label style={style.label}>Name of the student</Label>
+              <Input value={values.name} onChangeText={handleChange("name")}/>
+    </Item>
+    <Item stackedLabel style={style.input}>
+              <Label style={style.label}>GRE score</Label>
+              <Input value={values.gre} onChangeText={handleChange("gre")}/>
+    </Item>
+    <Item stackedLabel style={style.input}>
+              <Label style={style.label}>TOEFL score</Label>
+              <Input value={values.toefl} onChangeText={handleChange("toefl")}/>
+    </Item>
+    <Item stackedLabel style={style.input}>
+              <Label style={style.label}>CGPA/Expected CGPA on 10</Label>
+              <Input value={values.cgpa} onChangeText={handleChange("cgpa")} />
+    </Item>
+
+    <Item style={{marginTop:20}}>
+    <Picker
+              mode="dropdown"
+              placeholder="Select university"
+              itemStyle={{
+                backgroundColor: "#d3d3d3",
+                marginLeft: 0,
+                paddingLeft: 10
+              }}
+              itemTextStyle={{ color: '#788ad2' }}
+              style={{ width: undefined }}
+              onValueChange={() => {}}
+            >
+              <Picker.Item label="UCB" value="key0" />
+            </Picker>
+    </Item>
+    <Item stackedLabel style={style.input, {flexDirection: 'row', justifyContent:'space-between', width:'96%', marginTop:20}}>
+              <Label style={style.label}>Do you have any research published?</Label>
+              <CheckBox color="#048FC1" checked={researched} onPress={() => {
+                setResearched(!researched)
+                handleChange("researched")
+                }}/>
+    </Item>
+    <Item stackedLabel style={style.input, {flexDirection: 'row', justifyContent:'space-between', width:'96%', marginTop:20}}>
+              <Label style={style.label}>Agree to terms and conditions?</Label>
+              <CheckBox color="#048FC1" checked={tnc} onPress={() => {setTNC(!tnc)}}/>
+    </Item>
+    <Button onPress={handleSubmit} style={{backgroundColor:'#048FC1', marginTop:30, borderRadius:10, width:'100%'}}>
+            <Text style={{color:'#FFF', textAlign:'center', width:'100%'}}>PREDICT MY CHANCES</Text>
+    </Button>
+    </ScrollView>
+      )
+    }}
+    </Formik>
+  </View>
+};

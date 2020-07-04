@@ -3,6 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import { Container, Text, Footer, FooterTab, Button, Icon } from 'native-base';
 import ScreenStyles from "./CommonStyles";
 import ProgressPage from './ProgressPage';
+import FormPage from './FormPage';
 import FeedPage from './FeedPage';
 
 const BarStyles = StyleSheet.create({
@@ -25,7 +26,7 @@ const getContent = (idx) => {
         case 0: 
         return <FeedPage/>
         case 1: return <ProgressPage />
-        case 2: return <View style={ScreenStyles.screen}/>
+        case 2: return <FormPage />
     }
 }
 
