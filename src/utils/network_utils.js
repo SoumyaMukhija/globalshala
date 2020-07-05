@@ -32,6 +32,23 @@ export async function makePredictionRequest() {
   return json;
 }
 
+export function sendFormResponse() {
+  fetch(BASE_URL + "/univ_prediction", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      GRE: 320,
+      TOEFL: 111,
+      CGPA: 8.2,
+      Research: 0,
+      Terms: 1,
+    }),
+  });
+}
+
 export function openInBrowser(url) {
   Linking.openURL(url).catch((err) => alert("Can not open url!"));
 }
