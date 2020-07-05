@@ -1,6 +1,6 @@
 import { Linking } from "react-native";
 
-const BASE_URL = "https://0dd9f5a28184.ngrok.io";
+const BASE_URL = "https://2ae005c112eb.ngrok.io";
 
 export async function makeRequest() {
   const response = await fetch(BASE_URL);
@@ -30,23 +30,6 @@ export async function makePredictionRequest() {
   const response = await fetch(BASE_URL + "/univ_prediction/");
   const json = await response.json();
   return json;
-}
-
-export function sendFormResponse() {
-  fetch(BASE_URL + "/univ_prediction", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify({
-      GRE: 320,
-      TOEFL: 111,
-      CGPA: 8.2,
-      Research: 0,
-      Terms: 1,
-    }),
-  });
 }
 
 export function openInBrowser(url) {
