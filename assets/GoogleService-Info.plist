@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>250121240254-i9lhq1shk6t7rv95leuugl5naqbv25ro.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.250121240254-i9lhq1shk6t7rv95leuugl5naqbv25ro</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAvxdFbHNrnBfpXoXJkDsBUMvWuvWiXMhs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>250121240254</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.globalshala.globalshala</string>
+	<key>PROJECT_ID</key>
+	<string>globalshala-live-chat</string>
+	<key>STORAGE_BUCKET</key>
+	<string>globalshala-live-chat.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:250121240254:ios:9203fae08f29a0ba50e8ef</string>
+	<key>DATABASE_URL</key>
+	<string>https://globalshala-live-chat.firebaseio.com</string>
+</dict>
+</plist>
