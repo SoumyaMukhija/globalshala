@@ -16,24 +16,25 @@ const style = StyleSheet.create({
 });
 
 export default function FormPage() {
-  const [data, setData] = useState([]);
+  const [universities, setUniversities] = useState([]);
+  let [selectedUni, setSelectedUni] = useState("")
 
   async function getData() {
-    let json = makeRankingRequest();
-    setData(json);
+    let names = await makeRankingRequest();
+    setUniversities(names);
   }
-  function getPicker(data) {
-    const options = data.map((option) => {
-      console.log(data);
-      let opt = Object.keys(option);
-      return <Picker.Item label={opt[0]} value="key0" />;
-    });
-    return options;
-  }
-
+  
   useEffect(() => {
     getData();
   }, []);
+
+
+  const getPicker = () => {
+    if(universities){
+      return universities.map(university => <Picker.Item label={university} value={university} />)
+    }
+  }
+
 
   //  if (data) {
   let [researched, setResearched] = useState(false);
@@ -73,161 +74,160 @@ export default function FormPage() {
     return errors;
   };
 
-  return (
-    <View style={ScreenStyles.screen_basic}>
-      <Text style={TextStyle.heading}>Chances</Text>
-      <Text style={TextStyle.subtitle}>
-        Would you get into your dream university?
-      </Text>
-      <Formik
-        initialValues={{
-          name: "",
-          gre: 0,
-          toefl: 0,
-          cgpa: 0,
-          institute: "",
-          researched: false,
-        }}
-        onSubmit={(values) => {
-          let errors = validate(values);
-          if (errors && Object.values(errors).length > 0) {
-            let errorMsgs = Object.values(errors);
-            alert(JSON.stringify(errorMsgs[0]));
-          }
-        }}
-      >
-        {({
-          handleChange,
-          handleSubmit,
-          values,
-          touched,
-          errors,
-          isSubmitting,
-        }) => {
-          return (
-            <ScrollView
-              style={{ marginTop: 30, width: "100%" }}
-              showsVerticalScrollIndicator={false}
-            >
-              <Item stackedLabel style={style.input}>
-                <Label style={style.label}>Name of the student</Label>
-                <Input
-                  value={values.name}
-                  onChangeText={handleChange("name")}
-                />
-              </Item>
-              <Item stackedLabel style={style.input}>
-                <Label style={style.label}>Obtained/Expected GRE score</Label>
-                <Input value={values.gre} onChangeText={handleChange("gre")} />
-              </Item>
-              <Item stackedLabel style={style.input}>
-                <Label style={style.label}>Obtained/Expected TOEFL score</Label>
-                <Input
-                  value={values.toefl}
-                  onChangeText={handleChange("toefl")}
-                />
-              </Item>
-              <Item stackedLabel style={style.input}>
-                <Label style={style.label}>Obtained/Expected CGPA on 10</Label>
-                <Input
-                  value={values.cgpa}
-                  onChangeText={handleChange("cgpa")}
-                />
-              </Item>
-
-              <Item style={{ marginTop: 20 }}>
-                <Picker
-                  mode="dropdown"
-                  placeholder="Select university"
-                  itemStyle={{
-                    backgroundColor: "#d3d3d3",
-                    marginLeft: 0,
-                    paddingLeft: 10,
-                  }}
-                  itemTextStyle={{ color: "#788ad2" }}
-                  style={{ width: undefined }}
-                  onValueChange={() => {}}
+  if(universities){
+    return (
+      <View style={ScreenStyles.screen_basic}>
+        <Text style={TextStyle.heading}>Chances</Text>
+        <Text style={TextStyle.subtitle}>
+          Would you get into your dream university?
+        </Text>
+        <Formik
+          initialValues={{
+            name: "",
+            gre: 0,
+            toefl: 0,
+            cgpa: 0,
+            institute: "",
+            researched: false,
+          }}
+          onSubmit={(values) => {
+            let errors = validate(values);
+            if (errors && Object.values(errors).length > 0) {
+              let errorMsgs = Object.values(errors);
+              alert(JSON.stringify(errorMsgs[0]));
+            }
+          }}
+        >
+          {({
+            handleChange,
+            handleSubmit,
+            values,
+            touched,
+            errors,
+            isSubmitting,
+          }) => {
+            return (
+              <ScrollView
+                style={{ marginTop: 30, width: "100%" }}
+                showsVerticalScrollIndicator={false}
+              >
+                <Item stackedLabel style={style.input}>
+                  <Label style={style.label}>Name of the student</Label>
+                  <Input
+                    value={values.name}
+                    onChangeText={handleChange("name")}
+                  />
+                </Item>
+                <Item stackedLabel style={style.input}>
+                  <Label style={style.label}>Obtained/Expected GRE score</Label>
+                  <Input value={values.gre} onChangeText={handleChange("gre")} />
+                </Item>
+                <Item stackedLabel style={style.input}>
+                  <Label style={style.label}>Obtained/Expected TOEFL score</Label>
+                  <Input
+                    value={values.toefl}
+                    onChangeText={handleChange("toefl")}
+                  />
+                </Item>
+                <Item stackedLabel style={style.input}>
+                  <Label style={style.label}>Obtained/Expected CGPA on 10</Label>
+                  <Input
+                    value={values.cgpa}
+                    onChangeText={handleChange("cgpa")}
+                  />
+                </Item>
+  
+                <Item style={{ marginTop: 20 }}>
+                  <Picker
+                    mode="dropdown"
+                    placeholder="Select university"
+                    itemStyle={{
+                      backgroundColor: "#d3d3d3",
+                      marginLeft: 0,
+                      paddingLeft: 10,
+                    }}
+                    itemTextStyle={{ color: "#788ad2" }}
+                    style={{ width: undefined }}
+                    selectedValue={selectedUni}
+                    onValueChange={(val) => {setSelectedUni(val)}}
+                  >
+                    {getPicker()}
+                  </Picker>
+                </Item>
+                <Item
+                  stackedLabel
+                  style={
+                    (style.input,
+                    {
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                      width: "96%",
+                      marginTop: 20,
+                    })
+                  }
                 >
-                  {data != undefined ? (
-                    getPicker(data)
-                  ) : (
-                    <Picker.Item label="UCB" value="key0" />
-                  )}
-                </Picker>
-              </Item>
-              <Item
-                stackedLabel
-                style={
-                  (style.input,
-                  {
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    width: "96%",
-                    marginTop: 20,
-                  })
-                }
-              >
-                <Label style={style.label}>
-                  Do you have any research published?
-                </Label>
-                <CheckBox
-                  color="#048FC1"
-                  checked={researched}
-                  onPress={() => {
-                    setResearched(!researched);
-                    handleChange("researched");
-                  }}
-                />
-              </Item>
-              <Item
-                stackedLabel
-                style={
-                  (style.input,
-                  {
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    width: "96%",
-                    marginTop: 20,
-                  })
-                }
-              >
-                <Label style={style.label}>
-                  Agree to terms and conditions?
-                </Label>
-                <CheckBox
-                  color="#048FC1"
-                  checked={tnc}
-                  onPress={() => {
-                    setTNC(!tnc);
-                  }}
-                />
-              </Item>
-              <Button
-                onPress={handleSubmit}
-                style={{
-                  backgroundColor: "#048FC1",
-                  marginTop: 30,
-                  borderRadius: 10,
-                  width: "100%",
-                }}
-              >
-                <Text
+                  <Label style={style.label}>
+                    Do you have any research published?
+                  </Label>
+                  <CheckBox
+                    color="#048FC1"
+                    checked={researched}
+                    onPress={() => {
+                      setResearched(!researched);
+                      handleChange("researched");
+                    }}
+                  />
+                </Item>
+                <Item
+                  stackedLabel
+                  style={
+                    (style.input,
+                    {
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                      width: "96%",
+                      marginTop: 20,
+                    })
+                  }
+                >
+                  <Label style={style.label}>
+                    Agree to terms and conditions?
+                  </Label>
+                  <CheckBox
+                    color="#048FC1"
+                    checked={tnc}
+                    onPress={() => {
+                      setTNC(!tnc);
+                    }}
+                  />
+                </Item>
+                <Button
+                  onPress={handleSubmit}
                   style={{
-                    color: "#FFF",
-                    textAlign: "center",
+                    backgroundColor: "#048FC1",
+                    marginTop: 30,
+                    borderRadius: 10,
                     width: "100%",
                   }}
                 >
-                  PREDICT MY CHANCES
-                </Text>
-              </Button>
-            </ScrollView>
-          );
-        }}
-      </Formik>
-    </View>
-  );
-} //else {
-//return <Loading />;
-//}
-//}
+                  <Text
+                    style={{
+                      color: "#FFF",
+                      textAlign: "center",
+                      width: "100%",
+                    }}
+                  >
+                    PREDICT MY CHANCES
+                  </Text>
+                </Button>
+              </ScrollView>
+            );
+          }}
+        </Formik>
+      </View>
+    );
+  }
+  else{
+    return <Loading message="Pulling university fliers."/>;
+  }
+}
