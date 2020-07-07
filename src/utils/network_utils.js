@@ -1,6 +1,7 @@
 import { Linking } from "react-native";
+import formData from "../screens/FormPage";
 
-const BASE_URL = "https://163607c9ffa6.ngrok.io";
+const BASE_URL = "https://b5cc8081b17a.ngrok.io";
 
 export async function makeRequest() {
   const response = await fetch(BASE_URL);
@@ -23,9 +24,16 @@ export async function makeFeedRequest() {
 export async function makeRankingRequest() {
   const response = await fetch(BASE_URL + "/univ_ranking/");
   const json = await response.json();
-  const names = json['university ranking data'].map(el => Object.keys(el)[0])
+  const names = json["university ranking data"].map((el) => Object.keys(el)[0]);
   return names;
 }
+
+let sendFormData = () => {
+  axios
+    .post(BASE_URL + "/take_prediction_data/", formData)
+    .then((res) => console.log("Data sent!"))
+    .catch((err) => console.log(err.data));
+};
 
 // export async function getFeedData() {
 //   fetch("http://www.ngrok.hshsha.co.uk/login", {

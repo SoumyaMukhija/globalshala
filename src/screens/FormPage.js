@@ -17,24 +17,24 @@ const style = StyleSheet.create({
 
 export default function FormPage() {
   const [universities, setUniversities] = useState([]);
-  let [selectedUni, setSelectedUni] = useState("")
+  let [selectedUni, setSelectedUni] = useState("");
 
   async function getData() {
     let names = await makeRankingRequest();
     setUniversities(names);
   }
-  
+
   useEffect(() => {
     getData();
   }, []);
 
-
   const getPicker = () => {
-    if(universities){
-      return universities.map(university => <Picker.Item label={university} value={university} />)
+    if (universities) {
+      return universities.map((university) => (
+        <Picker.Item label={university} value={university} />
+      ));
     }
-  }
-
+  };
 
   //  if (data) {
   let [researched, setResearched] = useState(false);
@@ -74,7 +74,7 @@ export default function FormPage() {
     return errors;
   };
 
-  if(universities){
+  if (universities) {
     return (
       <View style={ScreenStyles.screen_basic}>
         <Text style={TextStyle.heading}>Chances</Text>
@@ -95,7 +95,17 @@ export default function FormPage() {
             if (errors && Object.values(errors).length > 0) {
               let errorMsgs = Object.values(errors);
               alert(JSON.stringify(errorMsgs[0]));
+            } else {
+              formData = {
+                GRE: values.gre,
+                TOEFL: values.toefl,
+                CGPA: values.cgpa,
+                Institute: values.institute,
+                Research: values.researched,
+              };
             }
+            console.log(formData);
+            return formData;
           }}
         >
           {({
@@ -120,23 +130,30 @@ export default function FormPage() {
                 </Item>
                 <Item stackedLabel style={style.input}>
                   <Label style={style.label}>Obtained/Expected GRE score</Label>
-                  <Input value={values.gre} onChangeText={handleChange("gre")} />
+                  <Input
+                    value={values.gre}
+                    onChangeText={handleChange("gre")}
+                  />
                 </Item>
                 <Item stackedLabel style={style.input}>
-                  <Label style={style.label}>Obtained/Expected TOEFL score</Label>
+                  <Label style={style.label}>
+                    Obtained/Expected TOEFL score
+                  </Label>
                   <Input
                     value={values.toefl}
                     onChangeText={handleChange("toefl")}
                   />
                 </Item>
                 <Item stackedLabel style={style.input}>
-                  <Label style={style.label}>Obtained/Expected CGPA on 10</Label>
+                  <Label style={style.label}>
+                    Obtained/Expected CGPA on 10
+                  </Label>
                   <Input
                     value={values.cgpa}
                     onChangeText={handleChange("cgpa")}
                   />
                 </Item>
-  
+
                 <Item style={{ marginTop: 20 }}>
                   <Picker
                     mode="dropdown"
@@ -149,7 +166,9 @@ export default function FormPage() {
                     itemTextStyle={{ color: "#788ad2" }}
                     style={{ width: undefined }}
                     selectedValue={selectedUni}
-                    onValueChange={(val) => {setSelectedUni(val)}}
+                    onValueChange={(val) => {
+                      setSelectedUni(val);
+                    }}
                   >
                     {getPicker()}
                   </Picker>
@@ -202,7 +221,8 @@ export default function FormPage() {
                   />
                 </Item>
                 <Button
-                  onPress={handleSubmit}
+                  type="submit"
+                  onclick={handleSubmit}
                   style={{
                     backgroundColor: "#048FC1",
                     marginTop: 30,
@@ -226,8 +246,7 @@ export default function FormPage() {
         </Formik>
       </View>
     );
-  }
-  else{
-    return <Loading message="Pulling university fliers."/>;
+  } else {
+    return <Loading message="Pulling university fliers." />;
   }
 }
