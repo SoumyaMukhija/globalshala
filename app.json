@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "global_mobile",
-    "slug": "global_mobile",
+    "name": "globalshala",
+    "slug": "globalshala",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,6 +21,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Many students of India still find studying abroad to be a far-fetched dream, despite having the required caliber for it. Education should not be limited by societal boundaries. Each student should have a fair opportunity of studying abroad, regardless of their financial situation, inability to course through the complex admission process, inability to decide upon Universities, or other such issues. Globalshala creates content that makes students feel at home with the idea of studying abroad. That content has now to be arranged in a way that is easily accessible, attractive, and gives a comfortable user experience. This app does just that! :-)\n",
+    "githubUrl": "https://github.com/soumyamukhija/globalshala"
   }
 }

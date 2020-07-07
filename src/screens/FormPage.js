@@ -17,24 +17,24 @@ const style = StyleSheet.create({
 
 export default function FormPage() {
   const [universities, setUniversities] = useState([]);
-  let [selectedUni, setSelectedUni] = useState("")
+  let [selectedUni, setSelectedUni] = useState("");
 
   async function getData() {
     let names = await makeRankingRequest();
     setUniversities(names);
   }
-  
+
   useEffect(() => {
     getData();
   }, []);
 
-
   const getPicker = () => {
-    if(universities){
-      return universities.map(university => <Picker.Item label={university} value={university} />)
+    if (universities) {
+      return universities.map((university) => (
+        <Picker.Item label={university} value={university} />
+      ));
     }
-  }
-
+  };
 
   //  if (data) {
   let [researched, setResearched] = useState(false);
@@ -43,30 +43,28 @@ export default function FormPage() {
   const validate = (values) => {
     const errors = {};
     if (!values.name) {
-      errors.name = "Name Required";
+      errors.name = "Name Required!";
     } else if (values.name.length < 2) {
-      errors.name = "Minimum length of 2";
+      errors.name = "The name field has to be of minimum length 2";
     }
     if (!values.gre) {
-      errors.gre = "GRE Required";
+      errors.gre = "GRE Required!";
     } else if (values.gre < 260) {
-      errors.gre = "Minimum val of 260";
-    } else if (values.gre > 330) {
-      errors.gre = "max val of 330";
+      errors.gre = "GRE score cannot be lower than 260!";
+    } else if (values.gre > 340) {
+      errors.gre = "GRE score cannot be greater than 340!";
     }
     if (!values.toefl) {
-      errors.toefl = "toefl Required";
-    } else if (values.toefl < 80) {
-      errors.toefl = "Minimum val of 80";
+      errors.toefl = "TOEFL Required!";
     } else if (values.toefl > 120) {
-      errors.toefl = "max val of 120";
+      errors.toefl = "TOEFL score cannot be greater than 120!";
     }
     if (!values.cgpa) {
       errors.cgpa = "CGPA Required";
     } else if (values.cgpa < 1) {
-      errors.password = "Minimum 1 character!";
+      errors.password = "CGPA should have minimum 1 character!";
     } else if (values.cgpa > 10) {
-      errors.password = "Max 10";
+      errors.password = "CGPA cannot be greater than 10!";
     }
     if (tnc == false) {
       errors.tnc = "Terms and conditions need to be checked.";
@@ -74,7 +72,7 @@ export default function FormPage() {
     return errors;
   };
 
-  if(universities){
+  if (universities) {
     return (
       <View style={ScreenStyles.screen_basic}>
         <Text style={TextStyle.heading}>Chances</Text>
@@ -95,10 +93,14 @@ export default function FormPage() {
             if (errors && Object.values(errors).length > 0) {
               let errorMsgs = Object.values(errors);
               alert(JSON.stringify(errorMsgs[0]));
-              return
+              return;
             }
-            let pred = await submitToPredict({...values, institute: selectedUni, researched})
-            alert(pred)
+            let pred = await submitToPredict({
+              ...values,
+              institute: selectedUni,
+              researched,
+            });
+            alert(pred);
           }}
         >
           {({
@@ -123,23 +125,30 @@ export default function FormPage() {
                 </Item>
                 <Item stackedLabel style={style.input}>
                   <Label style={style.label}>Obtained/Expected GRE score</Label>
-                  <Input value={values.gre} onChangeText={handleChange("gre")} />
+                  <Input
+                    value={values.gre}
+                    onChangeText={handleChange("gre")}
+                  />
                 </Item>
                 <Item stackedLabel style={style.input}>
-                  <Label style={style.label}>Obtained/Expected TOEFL score</Label>
+                  <Label style={style.label}>
+                    Obtained/Expected TOEFL score
+                  </Label>
                   <Input
                     value={values.toefl}
                     onChangeText={handleChange("toefl")}
                   />
                 </Item>
                 <Item stackedLabel style={style.input}>
-                  <Label style={style.label}>Obtained/Expected CGPA on 10</Label>
+                  <Label style={style.label}>
+                    Obtained/Expected CGPA on 10
+                  </Label>
                   <Input
                     value={values.cgpa}
                     onChangeText={handleChange("cgpa")}
                   />
                 </Item>
-  
+
                 <Item style={{ marginTop: 20 }}>
                   <Picker
                     mode="dropdown"
@@ -152,7 +161,9 @@ export default function FormPage() {
                     itemTextStyle={{ color: "#788ad2" }}
                     style={{ width: undefined }}
                     selectedValue={selectedUni}
-                    onValueChange={(val) => {setSelectedUni(val)}}
+                    onValueChange={(val) => {
+                      setSelectedUni(val);
+                    }}
                   >
                     {getPicker()}
                   </Picker>
@@ -229,8 +240,7 @@ export default function FormPage() {
         </Formik>
       </View>
     );
-  }
-  else{
-    return <Loading message="Pulling university fliers."/>;
+  } else {
+    return <Loading message="Pulling university fliers." />;
   }
 }

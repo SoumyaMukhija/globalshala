@@ -1,13 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
-import WelcomePage from "./src/screens/WelcomePage";
-import ProgressPage from "./src/screens/ProgressPage";
 import * as Font from "expo-font";
-import { Text } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
-import { AppLoading } from "expo";
 import HomePage from "./src/screens/HomePage";
 import Loading from "./src/screens/LoadingPage";
-//import AppFontLoader from "./src/utils/AppFontLoader";
 
 export default function App() {
   const _isMounted = useRef(true);
@@ -26,7 +21,7 @@ export default function App() {
     if (isLoading) {
       return <Loading />;
     } else {
-      return <HomePage />
+      return <HomePage />;
     }
   } else return <Loading />;
 }

@@ -1,6 +1,6 @@
 import { Linking } from "react-native";
 
-const BASE_URL = "https://234ccd5160eb.ngrok.io";
+const BASE_URL = "https://cd91c113541a.ngrok.io";
 
 export async function makeRequest() {
   const response = await fetch(BASE_URL);
@@ -23,7 +23,7 @@ export async function makeFeedRequest() {
 export async function makeRankingRequest() {
   const response = await fetch(BASE_URL + "/univ_ranking/");
   const json = await response.json();
-  const names = json['university ranking data'].map(el => Object.keys(el)[0])
+  const names = json["university ranking data"].map((el) => Object.keys(el)[0]);
   return names;
 }
 
@@ -53,17 +53,17 @@ export function openInBrowser(url) {
   Linking.openURL(url).catch((err) => alert("Can not open url!"));
 }
 
-export async function submitToPredict(info){
-  let url = BASE_URL + "/predict"
+export async function submitToPredict(info) {
+  let url = BASE_URL + "/predict";
 
   let response = await fetch(url, {
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({...info})
-})
-const content = await response.json();
-return JSON.stringify(content['prediction'])
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ ...info }),
+  });
+  const content = await response.json();
+  return JSON.stringify(content["prediction"]);
 }

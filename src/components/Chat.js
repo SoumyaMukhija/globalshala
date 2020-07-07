@@ -1,7 +1,7 @@
 import React from "react";
 import { GiftedChat } from "react-native-gifted-chat";
 
-import firebaseSDK from "../config/firebaseSDK";
+import firebaseSDK from "../components/config/FirebaseSDK";
 
 export default class Chat extends React.Component {
   static navigationOptions = ({ navigation }) => ({
