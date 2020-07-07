@@ -1,6 +1,6 @@
 import { Linking } from "react-native";
 
-const BASE_URL = "https://163607c9ffa6.ngrok.io";
+const BASE_URL = "https://234ccd5160eb.ngrok.io";
 
 export async function makeRequest() {
   const response = await fetch(BASE_URL);
@@ -51,4 +51,19 @@ export async function makePredictionRequest() {
 
 export function openInBrowser(url) {
   Linking.openURL(url).catch((err) => alert("Can not open url!"));
+}
+
+export async function submitToPredict(info){
+  let url = BASE_URL + "/predict"
+
+  let response = await fetch(url, {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({...info})
+})
+const content = await response.json();
+return JSON.stringify(content['prediction'])
 }
