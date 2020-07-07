@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "250121240254",
+    "firebase_url": "https://globalshala-live-chat.firebaseio.com",
+    "project_id": "globalshala-live-chat",
+    "storage_bucket": "globalshala-live-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250121240254:android:524bbf9b9351d5c350e8ef",
+        "android_client_info": {
+          "package_name": "com.global_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "250121240254-i5a29ehm81360qa4kvu8tsg8v76k7shp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMbMBHtcWY25e35BagnR_EVlXvIzoIKaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "250121240254-i5a29ehm81360qa4kvu8tsg8v76k7shp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "250121240254-i9lhq1shk6t7rv95leuugl5naqbv25ro.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.globalshala.globalshala"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250121240254:android:c30d94806cd9c9b550e8ef",
+        "android_client_info": {
+          "package_name": "com.globalshala.globalshala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "250121240254-i5a29ehm81360qa4kvu8tsg8v76k7shp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMbMBHtcWY25e35BagnR_EVlXvIzoIKaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "250121240254-i5a29ehm81360qa4kvu8tsg8v76k7shp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "250121240254-i9lhq1shk6t7rv95leuugl5naqbv25ro.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.globalshala.globalshala"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
