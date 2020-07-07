@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Formik } from "formik";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import ScreenStyles, { TextStyle } from "./CommonStyles";
-import { makeRankingRequest } from "../utils/network_utils";
+import { makeRankingRequest, submitToPredict } from "../utils/network_utils";
 import { Button, Item, Input, Label, CheckBox, Picker } from "native-base";
 import Loading from "./LoadingPage";
 
@@ -90,12 +90,15 @@ export default function FormPage() {
             institute: "",
             researched: false,
           }}
-          onSubmit={(values) => {
+          onSubmit={async (values) => {
             let errors = validate(values);
             if (errors && Object.values(errors).length > 0) {
               let errorMsgs = Object.values(errors);
               alert(JSON.stringify(errorMsgs[0]));
+              return
             }
+            let pred = await submitToPredict({...values, institute: selectedUni, researched})
+            alert(pred)
           }}
         >
           {({
