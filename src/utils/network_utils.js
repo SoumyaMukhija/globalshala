@@ -1,6 +1,6 @@
 import { Linking } from "react-native";
 
-const BASE_URL = "https://163607c9ffa6.ngrok.io";
+const BASE_URL = "https://18245c6529a5.ngrok.io";
 
 export async function makeRequest() {
   const response = await fetch(BASE_URL);
@@ -23,7 +23,7 @@ export async function makeFeedRequest() {
 export async function makeRankingRequest() {
   const response = await fetch(BASE_URL + "/univ_ranking/");
   const json = await response.json();
-  const names = json['university ranking data'].map(el => Object.keys(el)[0])
+  const names = json["university ranking data"].map((el) => Object.keys(el)[0]);
   return names;
 }
 
